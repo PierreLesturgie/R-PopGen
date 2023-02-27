@@ -9,7 +9,7 @@ require(vcfR)
 # > 1. missing data
 missing.data<-function(GT=NULL,vcf=NULL, SAMPLE=T, SNPs=T){
   miss.data<-function(gt){
-    return(length(which(gt=="./." | is.na(gt)))/length(gt))
+    return(length(which(gt=="./." | gt==".|." | is.na(gt)))/length(gt))
   }
   
   if(is.null(GT)){
