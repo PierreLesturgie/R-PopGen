@@ -546,8 +546,9 @@ multi.neigh.SFS<-function(sumstat_list,target,n.closest=100,plot.output=NULL){
 # 10. Function to compute watterson's () estimator of Theta from folded SFS
 # >>> implemented also if multiple dataset (multi)
 watterson<-function(sfs){
+  sample_size = length(sfs)*2
   h=0
-  for (j in 1:(length(sfs)-1)){
+  for (j in 1:(sample_size-1)){
     h=h+1/j
   }
   return(sum(as.numeric(sfs))/h) ####SEE FORMULA 
