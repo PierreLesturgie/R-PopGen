@@ -155,12 +155,13 @@ computes the sum of slopes between discretized intervals from the stairway plot 
 
 ## (3) FST
 ### Computes Hudson's (19XX) pairwise-FST
-From a VCF and a list of populations, this returns:
+This returns:
 - Overall pairwise FST between all locations
 - N resampling values for each pairwise comparison (optional)
 - Nucleotide pairwise FST between all locations
 - Pairwise FST values in sliding windows (optional)
 
+Input is a VCF and a list of populations
 
     fst.hudson(vcf, pop_list,resampling=100,sliding_window=FALSE,slide=NULL,jump=NULL,write=FALSE)
 
