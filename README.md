@@ -161,6 +161,7 @@ From a VCF and a list of populations, this returns:
 - Nucleotide pairwise FST between all locations
 - Pairwise FST values in sliding windows (optional)
 
+
     fst.hudson(vcf, pop_list,resampling=100,sliding_window=FALSE,slide=NULL,jump=NULL,write=FALSE)
 
 ### Computes Isolation By Distance using a Mantel Test
