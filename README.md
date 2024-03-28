@@ -45,7 +45,7 @@ Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() func
 Returns a list with frequency of fixed alleles data per sample or SNPs or both
 Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function)
 
-    fixed.alleles <- function(GT=NULL,vcf=NULL, SAMPLE=F, SNPs=T)
+    fixed.alleles(GT=NULL,vcf=NULL, SAMPLE=F, SNPs=T)
 
 ### Minor allele frequency
 Returns MAF data
@@ -56,7 +56,7 @@ Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() func
 ### Pick random SNP per locus
 Returns a filtered VCF. This is usually meaningful for RAD-like data (i.e., where there are many loci)
 
-    random.snp<-function(vcf)
+    random.snp(vcf)
 
 ## (2) Site frequency spectrum (SFS)
 
@@ -66,7 +66,7 @@ Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() func
 If needing monomorphinc sites (i.e., with a minor allele frequency of 0) use <mono=T>
 Possibility of parallelization 
 
-    sfs.folded = function(vcf=NULL,GT=NULL,slide=100000,jump=25000,sliding_window=FALSE,paral=F,mono=F)
+    sfs.folded(vcf=NULL,GT=NULL,slide=100000,jump=25000,sliding_window=FALSE,paral=F,mono=F)
 
 ### Unfolded SFS calculation
 Returns folded SFS (and possibly a derived vcf)
@@ -82,7 +82,7 @@ Returns folded SFS from unfolded
 ### Calculates a correct SFS with missing data
 Returns a folded SFS from a vcf and a maximum missing data rate
 
-    corr.sfs.missing.data<-function(vcf,md)
+    corr.sfs.missing.data(vcf,md)
 
 ### SFS normalization as in Lapierre et al. (2021)
 Returns normalized SFS from sfs (Without monomorphic sites)
@@ -109,7 +109,7 @@ followed by the SFS for each window
 ### Calculates Watterson's (1979) estimate of genetic diversity
 Input is simply a folded SFS (only polymorphic sites)
 
-    watterson<-function(sfs)
+    watterson(sfs)
 
 
 ### Psi calculation as in Peter & Slatkin (2013, 2015)
@@ -117,7 +117,7 @@ Input is a dataframe with number of derived allees per SNP and individual.
 The second script (psi2dist) returns a distance matrix with PSI valyes and significancy
 
     psi(der_all, bootstrap=1000)
-    psi2dist=function(psi,signif=T)
+    psi2dist(psi,signif=T)
 
 
 ### Genetic distance between two individuals
@@ -126,7 +126,7 @@ There are two functions:
 #### (A) : D = 1 - (shared_alleles / 2)
 Input is simply a genotype table (obtained using vcfR extract.gt function)
 
-    genetic.distance=function(gt)
+    genetic.distance(gt)
 
 #### (B) : Bray-Curtis distance
 Input is simply a vcf
@@ -137,15 +137,15 @@ Input is simply a vcf
 Input is a **named** list of multiple output dataframe from stairwayplot (*.summary)
 Also works with a single dataframe but still needs to be stored in a list. 
 
-    plot.stairway.IC<-function(data_list,var="Ne",output='stairway.pdf',alpha=0.1,cols=NULL,CI=T,xlim=NULL, legend=T,
+    plot.stairway.IC(data_list,var="Ne",output='stairway.pdf',alpha=0.1,cols=NULL,CI=T,xlim=NULL, legend=T,
                            leg_pos=c(0.78, 0.92),ylim=NULL,x.breaks=4,y.breaks=5,ncol.leg=1,by.gen=NULL,
                            vline=NULL,col_vline='grey',ltyp=NULL,ltyp_vline='dashed')
 
 ### Neighbouring SFS in ABC sumstat
 Computes the N closest SFS to the observed one in one or multiple simulated models 
 
-    neighbours.SFS<-function(sumstat,target,n.closest=100,plot.output=NULL)
-    multi.neigh.SFS<-function(sumstat_list,target,n.closest=100,plot.output=NULL)
+    neighbours.SFS(sumstat,target,n.closest=100,plot.output=NULL)
+    multi.neigh.SFS(sumstat_list,target,n.closest=100,plot.output=NULL)
 
 ### Fluctuations in stairway plot output
 computes the sum of slopes between discretized intervals from the stairway plot output
