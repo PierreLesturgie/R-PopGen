@@ -18,37 +18,44 @@ Installing the following packages will ensure all functions to work:
 
 ## (1) Filtering and extracting info from VCFs
 ### Missing data
+
 Returns a list with missing data per sample or SNPs or both
+
 Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function)
 
     missing.data(GT=NULL,vcf=NULL, SAMPLE=T, SNPs=T)
 
 ### Depth
 Returns a list with depth of coverage data per sample or SNPs or both
+
 Need to input either a vcf or a depth matrix (obtained from vcfR extract.gt() function)
 
     depth(DP=NULL,vcf=NULL, SAMPLE=T, SNPs=T)
     
 ### GC content
 Returns GC data
+
 Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function)
 
     gc.content(GT=NULL, vcf=NULL)
 
 ### Heterozygosity
 Returns a list with heterozygosity data per sample or SNPs or both
+
 Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function)
 
     heterozygosity(GT=NULL,vcf=NULL, SAMPLE=F, SNPs=T)
 
 ### Frequency of fixed alleles
 Returns a list with frequency of fixed alleles data per sample or SNPs or both
+
 Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function)
 
     fixed.alleles(GT=NULL,vcf=NULL, SAMPLE=F, SNPs=T)
 
 ### Minor allele frequency
 Returns MAF data
+
 Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function)
 
     minor.allele.frequency(GT=NULL,vcf=NULL)
@@ -62,14 +69,18 @@ Returns a filtered VCF. This is usually meaningful for RAD-like data (i.e., wher
 
 ### Folded SFS calculation
 Returns folded SFS (accross all SNPs or in sliding windows)
+
 Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function)
+
 If needing monomorphinc sites (i.e., with a minor allele frequency of 0) use <mono=T>
+
 Possibility of parallelization 
 
     sfs.folded(vcf=NULL,GT=NULL,slide=100000,jump=25000,sliding_window=FALSE,paral=F,mono=F)
 
 ### Unfolded SFS calculation
 Returns folded SFS (and possibly a derived vcf)
+
 Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function) and the sample name of the outgroup
 
     sfs.unfolded(vcf=NULL, GT=NULL, outgroup, return_derived_vcf=F)
@@ -86,6 +97,7 @@ Returns a folded SFS from a vcf and a maximum missing data rate
 
 ### SFS normalization as in Lapierre et al. (2021)
 Returns normalized SFS from sfs (Without monomorphic sites)
+
 Possibility to return the expected norm SFS and expected SFS under and panmictic and constant population scenario
 
     normalized.expected.SFS(sfs, return.expected.norm=TRUE, return.norm=TRUE, return.expected.SFS=TRUE)
@@ -114,6 +126,7 @@ Input is simply a folded SFS (only polymorphic sites)
 
 ### Psi calculation as in Peter & Slatkin (2013, 2015)
 Input is a dataframe with number of derived allees per SNP and individual. 
+
 The second script (psi2dist) returns a distance matrix with PSI valyes and significancy
 
     psi(der_all, bootstrap=1000)
@@ -135,6 +148,7 @@ Input is simply a vcf
 
 ### Plot Stairway Plot with confidence intervals
 Input is a **named** list of multiple output dataframe from stairwayplot (*.summary)
+
 Also works with a single dataframe but still needs to be stored in a list. 
 
     plot.stairway.IC(data_list,var="Ne",output='stairway.pdf',alpha=0.1,cols=NULL,CI=T,xlim=NULL, legend=T,
