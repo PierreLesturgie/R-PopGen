@@ -1,7 +1,8 @@
 # Population Genomics with R
-----------------------
+---
 #### Author: Pierre Lesturgie
-----------------------
+#### Example citation: Lesturgie, P. (2024). *R-PopGen*. Available at: https://github.com/plesturgie/R-PopGen. Last accessed XXX.
+---
 
 ## Analyse and filter genomics data using R functions
  
