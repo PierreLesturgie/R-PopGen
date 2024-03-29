@@ -25,7 +25,7 @@ Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() func
 
 ### Depth
 Returns a list with depth of coverage data per sample or SNPs or both
-Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function)
+Need to input either a vcf or a depth matrix (obtained from vcfR extract.gt() function)
 
     depth(DP=NULL,vcf=NULL, SAMPLE=T, SNPs=T)
     
