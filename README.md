@@ -29,7 +29,7 @@ Need to input either a vcf or a depth matrix (obtained from vcfR extract.gt() fu
 
     depth(DP=NULL,vcf=NULL, SAMPLE=T, SNPs=T)
     
-### gc content
+### GC content
 Returns GC data
 Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function)
 
