@@ -147,6 +147,14 @@ Input is simply a vcf
 
     BC.distance.individual(vcf,bootstrap=NULL)
 
+### Neighbouring SFS in ABC sumstat
+Computes the N closest SFS to the observed one in one or multiple simulated models 
+
+    neighbours.SFS(sumstat,target,n.closest=100,plot.output=NULL)
+    multi.neigh.SFS(sumstat_list,target,n.closest=100,plot.output=NULL)
+
+    
+## (3) Stairway Plot tools
 ### Plot Stairway Plot with confidence intervals
 Input is a **named** list of multiple output dataframe from stairwayplot (*.summary)
 
@@ -156,11 +164,6 @@ Also works with a single dataframe but still needs to be stored in a list.
                            leg_pos=c(0.78, 0.92),ylim=NULL,x.breaks=4,y.breaks=5,ncol.leg=1,by.gen=NULL,
                            vline=NULL,col_vline='grey',ltyp=NULL,ltyp_vline='dashed')
 
-### Neighbouring SFS in ABC sumstat
-Computes the N closest SFS to the observed one in one or multiple simulated models 
-
-    neighbours.SFS(sumstat,target,n.closest=100,plot.output=NULL)
-    multi.neigh.SFS(sumstat_list,target,n.closest=100,plot.output=NULL)
 
 ### Fluctuations in stairway plot output
 computes the sum of slopes between discretized intervals from the stairway plot output
@@ -168,7 +171,7 @@ computes the sum of slopes between discretized intervals from the stairway plot 
     fluctuations.stairway(stairway,N_DISCRETIZE)
 
 
-## (3) FST
+## (4) FST
 ### Computes Hudson's (19XX) pairwise-FST
 This returns:
 - Overall pairwise FST between all locations
