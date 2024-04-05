@@ -1,6 +1,6 @@
 # Population Genomics with R
 ---
-### Author: Pierre Lesturgie
+### Author: Pierre Lesturgie (pierrelesturgie@outlook.fr)
 
 #### Most of the scripts have been written for:
 
