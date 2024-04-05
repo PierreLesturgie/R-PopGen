@@ -2,11 +2,11 @@
 ---
 #### Author: Pierre Lesturgie
 
-Most of the scripts have been written for:
+#### Most of the scripts have been written for:
 
-#### Lesturgie, P., Denton, J., Yang, L., Corrigan, S., Kneebone, J., Laso-Jadart, R., Lynghammar, A., Fedrigo, O., Mona, S., Naylor, GJP. (2024). A Size-determining Supergene Hampers a Vulnerable Population Recovery. In Review
+### Lesturgie, P., Denton, J., Yang, L., Corrigan, S., Kneebone, J., Laso-Jadart, R., Lynghammar, A., Fedrigo, O., Mona, S., Naylor, GJP. (2024). A Size-determining Supergene Hampers a Vulnerable Population Recovery. In Review
 
-Please cite it if using the scripts.
+#### Please cite it if using the scripts.
 
 #### Example citation: Lesturgie, P. (2024). *R-PopGen*. Available at: https://github.com/plesturgie/R-PopGen. Last accessed XXX.
 ---
