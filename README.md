@@ -160,6 +160,13 @@ Computes the N closest SFS to the observed one in one or multiple simulated mode
     neighbours.SFS(sumstat,target,n.closest=100,plot.output=NULL)
     multi.neigh.SFS(sumstat_list,target,n.closest=100,plot.output=NULL)
 
+
+### Calculates 2D-SFS and a set of bootstrapped 2D-SFS by blocks
+Input is a vcf, a list of popmaps
+
+```
+sfs_boots = bootSFS2D.blocks(dati = dati,lista_pop = lista_pop,block_size = 10000,n_boot = 100,return_OBS = T)
+```
     
 ## (3) Stairway Plot tools
 ### Plot Stairway Plot with confidence intervals
