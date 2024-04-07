@@ -1960,3 +1960,194 @@ index.n.inter <- function(fst,phylogenetic_scale="species",threshold=0){
   return(interactions_clean)
 }
 
+fun_geno_mod<-function(data){
+  for (i in 1:length(data)) {
+    if (data[i]=="./." | data[i]==".|." | is.na(data[i])==T) {data[i]<-NaN}
+    if (data[i]=="0/0" | data[i]=="0|0") {data[i]<-0}
+    if (data[i]=="0/1" | data[i]=="0|1") {data[i]<-1}
+    if (data[i]=="1/1" | data[i]=="1|1") {data[i]<-2}
+  }
+  return(data)
+}
+fun_conta_ALT_2<-function(data, lista_pop){
+  ##################  prendo gli estremi di ogni popolazione per poter poi calcolare i dati mancanti per pop per filtrare dopo
+  born_inf_fin<-c()
+  born_sup_fin<-c()
+  n_pop<-length(lista_pop)
+  for (z in 1:n_pop){
+    ####ciclo per prendere i limiti di ciascuna pop dove vedere se lo SNP c'? in almeno un individuo
+    if (z==1) {
+      born_inf=1
+      born_sup=length(lista_pop[[z]])
+    }
+    else {
+      vett_lungh_sup<-c()
+      for (s in 1:z) {
+        vett_lungh_sup<-cbind(vett_lungh_sup,length(lista_pop[[s]]))}
+      vett_lungh_inf<-c()
+      for (s in 1:(z-1)) {vett_lungh_inf<-cbind(vett_lungh_inf,length(lista_pop[[s]]))}
+      
+      born_inf=1+sum(vett_lungh_inf)
+      born_sup=sum(vett_lungh_sup)
+    }
+    born_inf_fin<-c(born_inf_fin,born_inf) ## i due vettori con gli indici degli estremi delle popolazioni
+    born_sup_fin<-c(born_sup_fin,born_sup)
+  }
+  ####################################
+  risultato<-c()
+  #for (i in 1:length(data)) {
+  for (j in 1:length(born_inf_fin)) {
+    risultato<-c(risultato, sum(data[born_inf_fin[j]:born_sup_fin[j]], na.rm=T))
+  }
+  risultato<-c(risultato,sum(data, na.rm=T))
+  #}
+  return(risultato)
+}
+calcola_sfs2D_pairwise.modified.for.blocks<-function(mat_con_alt,lista_pop){
+  n_ind<-2*length(unlist(lista_pop))
+  ########## creo matrici di output
+  new_list<-list()
+  for (i in 1:(length(lista_pop)-1)){
+    for (j in 2:length(lista_pop)){
+      if (i!=j && i<j) {
+        righe=2*length(lista_pop[[i]])+1
+        colonne=2*length(lista_pop[[j]])+1
+        matrice<-matrix(rep(0,righe*colonne),nrow=righe, ncol=colonne)
+        #print(i)
+        #print(j)
+        new_list<-list.append(new_list,matrice)
+      }
+    }
+  }
+  ########
+  if(dim(mat_con_alt)[1]!=0){
+    #pb <- txtProgressBar(min = 0, max = nrow(mat_con_alt), style = 3)
+    for (z in 1:nrow(mat_con_alt)){
+      if (mat_con_alt[z,ncol(mat_con_alt)]<(n_ind/2)) { ### il MAF ? l'allele ALT
+        indice_list<-1
+        for (i in 1:(length(lista_pop)-1)){
+          for (j in 2:length(lista_pop)){
+            if (i!=j && i<j) {
+              new_list[[indice_list]][mat_con_alt[z,i]+1,mat_con_alt[z,j]+1]<-new_list[[indice_list]][mat_con_alt[z,i]+1,mat_con_alt[z,j]+1]+1
+              indice_list<-indice_list+1
+            }
+          }
+        }
+      } else if (mat_con_alt[z,ncol(mat_con_alt)]>(n_ind/2)) { ### il MAF ? l"allele REF
+        indice_list<-1
+        for (i in 1:(length(lista_pop)-1)){
+          for (j in 2:length(lista_pop)){
+            if (i!=j && i<j) {
+              n_ind_pop_row<-2*length(lista_pop[[i]])
+              n_ind_pop_col<-2*length(lista_pop[[j]])
+              new_list[[indice_list]][n_ind_pop_row-mat_con_alt[z,i]+1,n_ind_pop_col-mat_con_alt[z,j]+1]<-new_list[[indice_list]][n_ind_pop_row-mat_con_alt[z,i]+1,n_ind_pop_col-mat_con_alt[z,j]+1]+1
+              indice_list<-indice_list+1
+            }
+          }
+        }
+      } else {  ### i due alleli hanno freq 0.5 nella pop totale, quindi seguo Laurent che aumenta di 0.5 la entries per entrambi
+        indice_list<-1
+        for (i in 1:(length(lista_pop)-1)){
+          for (j in 2:length(lista_pop)){
+            if (i!=j && i<j) {
+              n_ind_pop_row<-2*length(lista_pop[[i]])
+              n_ind_pop_col<-2*length(lista_pop[[j]])
+              new_list[[indice_list]][n_ind_pop_row-mat_con_alt[z,i]+1,n_ind_pop_col-mat_con_alt[z,j]+1]<-new_list[[indice_list]][n_ind_pop_row-mat_con_alt[z,i]+1,n_ind_pop_col-mat_con_alt[z,j]+1]+0.5
+              new_list[[indice_list]][mat_con_alt[z,i]+1,mat_con_alt[z,j]+1]<-new_list[[indice_list]][mat_con_alt[z,i]+1,mat_con_alt[z,j]+1]+0.5
+              indice_list<-indice_list+1
+            }
+          }
+        }
+      }
+      #setTxtProgressBar(pb, z)
+    }
+  }
+  return(new_list)
+}
+
+make.blocks=function(dati2,mat_con_alt,block_size=10000){
+  POS=getPOS(dati2)
+  blocks=c(seq(0,max(POS),block_size),max(POS))
+  
+  mat_con_alt_blocks = list()
+  pb <- txtProgressBar(min = 0, max = (length(blocks)-1), style = 3)
+  for(i in 1:(length(blocks)-1)){
+    mat_con_alt_blocks[[i]] = mat_con_alt[which(POS > blocks[i] & POS <= blocks[i+1]),]
+    if(is.null(dim(mat_con_alt_blocks[[i]]))){
+      mat_con_alt_blocks[[i]] = t(matrix(mat_con_alt_blocks[[i]]))
+    }
+    setTxtProgressBar(pb, i)
+  }
+  return(mat_con_alt_blocks)
+}
+get.back.full.sfs = function(res,subset_vect=NULL){
+  
+  if(is.null(subset_vect)){
+    subset_vect = c(1:length(res))
+  }
+  
+  res_all = list()
+  res_temp = res[[subset_vect[1]]]
+  for(j in 1:length(res_temp)){
+    res_all[[j]] = res_temp[[j]]
+  }
+  
+  #pb <- txtProgressBar(min = 0, max = (length(blocks)-1), style = 3)
+  for(i in 2:length(subset_vect)){
+    res_temp = res[[subset_vect[i]]]
+    for(j in 1:length(res_temp)){
+      res_all[[j]] = res_all[[j]] + res_temp[[j]]
+    }
+    #setTxtProgressBar(pb, i)
+  }
+  return(res_all)
+}
+
+bootSFS2D.blocks=function(dati,lista_pop,block_size=10000,n_boot=100,return_OBS=T){
+  
+  # This is a part with the function of Stefano
+  n_ind<-2*length(unlist(lista_pop)) ### n? of chromosomes, to know who is the MAF
+  dati2<-dati[,c("FORMAT", unlist(lista_pop))] ### riordino individui per assegnare pop
+  genotype<-extract.gt(dati2, element = "GT", mask = FALSE, as.numeric=F,return.alleles = FALSE, IDtoRowNames = TRUE, extract = TRUE, convertNA = FALSE) ### prendo i genotipi in 1/0
+  cat('\n',"Converting genotype file",'\n')
+  qqq=pbapply(genotype, 1, fun_geno_mod)
+  genotype_num<-matrix(as.numeric(qqq), ncol=ncol(genotype), nrow=nrow(genotype), byrow=T) ### a questo devo applicare funziona conta ALT
+  cat('\n',"Computing allele frequencies",'\n')
+  mat_con_alt<-t(pbapply(genotype_num, 1, fun_conta_ALT_2, lista_pop)) ### each column is the sim of ALT for each pop. Last colomn is the total ALT, which is needed to know who is the global MAF
+  
+  
+  cat('\n',"Splitting the dataset into blocks of",block_size,"bp",'\n')
+  mat_con_alt_blocks = make.blocks(dati2,mat_con_alt,block_size = block_size)
+  
+  cat('\n',"Computing 2DSFS for each block",'\n')
+  res = pbmapply(mat_con_alt_blocks,FUN = calcola_sfs2D_pairwise.modified.for.blocks,MoreArgs=list(lista_pop),SIMPLIFY = F)
+  
+  ### Just to check if it worked
+  #res_all = get.back.full.sfs(res)
+  
+  #test = calcola_sfs2D_pairwise.mod_boot(mat_con_alt2)
+  
+  #res_all[[1]] == test[[1]]
+  ### Ok we're able to get back the same SFS. 
+  
+  
+  ### Now we bootstrap the sfs 
+  cat('\n',"Computing",n_boot,"bootstraps on the 2DSFS",'\n')
+  n_boot = n_boot
+  boot_sfs = list()
+  pb <- txtProgressBar(min = 0, max = n_boot, style = 3)
+  for(i in 1:n_boot){
+    new_sample = sample(length(res),replace = T)
+    new_sample = new_sample[order(new_sample)]
+    boot_sfs[[i]] = get.back.full.sfs(res = res,subset_vect = new_sample)
+    setTxtProgressBar(pb, i)
+  }
+  if(return_OBS==T){
+    obs_SFS=get.back.full.sfs(res = res,subset_vect = NULL)
+    final = list(obs_SFS,boot_sfs); names(final) = c("Observed","Bootstrapped")
+  }else{
+    final = boot_sfs
+  }
+  return(final)
+} ## Wrapping function
+
