@@ -8,7 +8,6 @@ Lesturgie, P., Denton, J., Yang, L., Corrigan, S., Kneebone, J., Laso-Jadart, R.
 
 #### Please cite it if using the scripts.
 
-#### Example citation: Lesturgie, P. (2024). *R-PopGen*. Available at: https://github.com/plesturgie/R-PopGen. Last accessed XXX.
 ---
 
 ## Analyse and filter genomics data using R functions
