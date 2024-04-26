@@ -4,9 +4,11 @@
 
 These scripts were developed and used (for the most part) in: 
 
-Lesturgie, P., Denton, J., Yang, L., Corrigan, S., Kneebone, J., Laso-Jadart, R., Lynghammar, A., Fedrigo, O., Mona, S., Naylor, GJP. (***In Review***). A Size-determining Supergene Hampers a Vulnerable Population Recovery. 
+**(1)** Lesturgie, P., Denton, J., Yang, L., Corrigan, S., Kneebone, J., Laso-Jadart, R., Lynghammar, A., Fedrigo, O., Mona, S., Naylor, GJP. (***In Review***). A Size-determining Supergene Hampers a Vulnerable Population Recovery. 
 
-#### Please cite it if using the scripts.
+**(2)** Lesturgie, P., Le Gouellec, M., Brandl, S.J., Casey, J.M., Delecambre, Z., Parravicini, V., & Mona, S. (***In prep***). Larger trophic niche increases stability along evolutionary times. 
+
+#### Please cite accordingly if using the scripts.
 
 ---
 
