@@ -27,7 +27,9 @@ Installing the following packages will ensure all functions to work:
 
 Then one simply has to source the functions file using: 
 
-``` source(functions_updated.R) ```
+``` 
+source(functions_updated.R)
+ ```
 
 ## (1) Filtering and extracting info from VCFs
 ### Missing data
