@@ -28,21 +28,9 @@ Installing the following packages will ensure all functions to work:
 Then one simply has to source the functions file (i.e., doing ``` source(functions_updated.R) ```)
 
 ## List of functions: 
-### (1) Filtering and extracting info from VCFs
- - Missing data [``` missing.data(GT=NULL,vcf=NULL, SAMPLE=T, SNPs=T)``` ] Used in **(2)**
-
-Returns a list with missing data per sample or SNPs or both
-
-Need to input either a vcf or at GT matrix (obtained from vcfR extract.gt() function)
-
-   
-
-#### Depth
-Returns a list with depth of coverage data per sample or SNPs or both
-
-Need to input either a vcf or a depth matrix (obtained from vcfR extract.gt() function)
-
-    depth(DP=NULL,vcf=NULL, SAMPLE=T, SNPs=T)
+### Filtering and extracting info from VCFs
+ - Missing data (``` missing.data(GT=NULL,vcf=NULL, SAMPLE=T, SNPs=T)```), used in ***(2)***
+ - Depth (```depth(DP=NULL,vcf=NULL, SAMPLE=T, SNPs=T)```)
     
 #### GC content
 Returns GC data
