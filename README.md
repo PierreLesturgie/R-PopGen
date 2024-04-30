@@ -14,7 +14,7 @@ These scripts were developed and used (for the most part) in:
 
 ## Analyse and filter genomics data using R functions
  
-This repository provides python scripts to analyse and filter genomic data.
+This repository provides R scripts to analyse and filter genomic data.
  
 Installing the following packages will ensure all functions to work:
 - parallel
@@ -24,6 +24,10 @@ Installing the following packages will ensure all functions to work:
 - scales
 - ade4
 - rlist
+
+Then one simply has to source the functions file using: 
+
+`` source(functions_updated.R)``
 
 ## (1) Filtering and extracting info from VCFs
 ### Missing data
