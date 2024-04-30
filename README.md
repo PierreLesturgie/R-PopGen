@@ -25,11 +25,7 @@ Installing the following packages will ensure all functions to work:
 - ade4
 - rlist
 
-Then one simply has to source the functions file using: 
-
-``` 
-source(functions_updated.R)
- ```
+Then one simply has to source the functions file (i.e., doing ``` source(functions_updated.R) ```)
 
 ## (1) Filtering and extracting info from VCFs
 ### Missing data
