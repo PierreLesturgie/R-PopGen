@@ -40,7 +40,6 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
  - Pick random SNP per locus: ```random.snp()``` - used in **(1)**
 
 ### Site frequency spectrum (SFS)
-
 - Folded SFS calculation: ```sfs.folded()``` - used in **(2)**
 - Unfolded SFS calculation: ```sfs.unfolded()```
 - SFS folding: ```fold.SFS(sfs)```
@@ -52,13 +51,12 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
 - Calculates Watterson's (1979) estimate of genetic diversity: ```watterson()```  - used in **(1)**, **(2)** and **(3)**
 - Psi calculation as in Peter & Slatkin (2013, 2015): ```psi()``` - used in **(1)**
 - Genetic distances between two individuals: ```genetic.distance()``` and ```BC.distance.individual()``` - used in **(1)**
-- Neighbouring SFS in ABC sumstat: ```neighbours.SFS()``` and ```multi.neigh.SFS()``` - used in **(1)**
 - Calculates 2D-SFS and a set of bootstrapped 2D-SFS by blocks: ```bootSFS2D.blocks()```  - used in **(1)**
-    
-### Stairway Plot and PSMC tools
 
+### Stairway Plot and PSMC tools
+# NEED TO ADD PSMC
 - Plot Stairway Plot with confidence intervals: ```plot.stairway.IC()``` - used in **(1)** and **(3)**
-- Fluctuations in stairway plot output: ```fluctuations.stairway()``` - used in **(2)**
+- Fluctuations in stairway plot output: ```fluctuations.stairway()``` - used in **(3)**
 
 ### FST
 - Computes Hudson's (1992) pairwise-FST with resampling procedure: ```fst.hudson()``` - used in **(1)**
@@ -66,6 +64,12 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
 - Plot heatmap and similarity graphy of FST: ```plot.fst()``` - used in **(1)**
 
 
+### ABC with Random Forest pipeline
+# NEED TO ADD THOSE SCRIPTS
+- Model Selection: ```model.selection.random.forest()``` - used in **(1)**
+- PCA with targets and summary statistics: ```pcabc()``` - used in **(1)**
+- Parameter estimation: ```param.estimation.random.forest()``` - used in **(1)**
+- Neighbouring SFS in ABC sumstat: ```neighbours.SFS()``` and ```multi.neigh.SFS()``` - used in **(1)**
 
 
 
