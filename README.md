@@ -29,8 +29,8 @@ Then one simply has to source the functions file (``` source(functions_updated.R
 
 ## List of functions: 
 ### Filtering and extracting info from VCFs
- - Missing data: ``` missing.data(GT=NULL,vcf=NULL, SAMPLE=T, SNPs=T)```. *Used in (2)*
- - Depth (```depth(DP=NULL,vcf=NULL, SAMPLE=T, SNPs=T)```)
+ - Missing data per SNPs and / or individual: ``` missing.data()``` - used in **(2)**
+ - Depth per SNPs and / or individual: (```depth()```) - used in **(2)**
     
 #### GC content
 Returns GC data
