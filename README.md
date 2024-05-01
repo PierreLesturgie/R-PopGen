@@ -25,11 +25,11 @@ Installing the following packages will ensure all functions to work:
 - ade4
 - rlist
 
-Then one simply has to source the functions file (i.e., doing ``` source(functions_updated.R) ```)
+Then one simply has to source the functions file (``` source(functions_updated.R)```)
 
 ## List of functions: 
 ### Filtering and extracting info from VCFs
- - Missing data (``` missing.data(GT=NULL,vcf=NULL, SAMPLE=T, SNPs=T)```), used in ***(2)***
+ - Missing data: ``` missing.data(GT=NULL,vcf=NULL, SAMPLE=T, SNPs=T)```. *Used in (2)*
  - Depth (```depth(DP=NULL,vcf=NULL, SAMPLE=T, SNPs=T)```)
     
 #### GC content
