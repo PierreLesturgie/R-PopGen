@@ -4,9 +4,11 @@
 
 These scripts were developed and used (for the most part) in: 
 
-**(1)** Lesturgie, P., Denton, J., Yang, L., Corrigan, S., Kneebone, J., Laso-Jadart, R., Lynghammar, A., Fedrigo, O., Mona, S., Naylor, GJP. (***In Review***). A Size-determining Supergene Hampers a Vulnerable Population Recovery. 
+**(1)** Lesturgie, P., Planes, S., & Mona, S. (2022). Coalescence times, life history traits and conservation concerns: An example from four coastal shark species from the Indo‐Pacific. Molecular Ecology Resources, 22(2), 554–566. https://doi.org/10.1111/1755-0998.13487
 
-**(2)** Lesturgie, P., Le Gouellec, M., Brandl, S.J., Casey, J.M., Delecambre, Z., Parravicini, V., & Mona, S. (***In prep***). Larger trophic niche increases stability along evolutionary times. 
+**(2)** Lesturgie, P., Denton, J., Yang, L., Corrigan, S., Kneebone, J., Laso-Jadart, R., Lynghammar, A., Fedrigo, O., Mona, S., Naylor, GJP. (***In Review***). A Size-determining Supergene Hampers a Vulnerable Population Recovery. 
+
+**(3)** Lesturgie, P., Le Gouellec, M., Brandl, S.J., Casey, J.M., Delecambre, Z., Parravicini, V., & Mona, S. (***In prep***). Larger trophic niche increases stability along evolutionary times. 
 
 #### Please cite accordingly if using the scripts.
 
@@ -29,13 +31,13 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
 
 ## List of functions: 
 ### Filtering and extracting info from VCFs
- - Missing data per SNPs and / or individual: ``` missing.data()``` - used in **(2)**
- - Depth per SNPs and / or individual: ```depth()``` - used in **(2)**
- - GC content: ```gc.content()```
- - Heterozygosity per SNPs and / or individual: ```heterozygosity()``` - used in **(2)**
+ - Missing data per SNPs and / or individual: ``` missing.data()``` - used in **(1)** and **(3)**
+ - Depth per SNPs and / or individual: ```depth()``` - used in **(1)** and **(3)**
+ - GC content: ```gc.content()``` - used in **(2)**
+ - Heterozygosity per SNPs and / or individual: ```heterozygosity()``` - used in **(1)** and **(3)**
  - Frequency of fixed alleles per SNPs and / or individual: ```fixed.alleles()``` - used in **(1)**
- - Minor allele frequency: ```minor.allele.frequency()``` - used in **(1)**
- - Pick random SNP per locus: ```random.snp()```
+ - Minor allele frequency: ```minor.allele.frequency()``` - used in **(1)** and **(2)**
+ - Pick random SNP per locus: ```random.snp()``` - used in **(1)**
 
 ### Site frequency spectrum (SFS)
 
@@ -43,19 +45,19 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
 - Unfolded SFS calculation: ```sfs.unfolded()```
 - SFS folding: ```fold.SFS(sfs)```
 - Calculates a correct SFS with missing data: ```corr.sfs.missing.data()```
-- SFS normalization as in Lapierre et al. (2021): ```normalized.expected.SFS()``` - used in **(1)** and **(2)**
+- SFS normalization as in Lapierre et al. (2021): ```normalized.expected.SFS()``` - used in **(1)**, **(2)** and **(3)**
 - SFS normalization as in Lapierre et al. (2021) in sliding windows: ```normalized.expected.SFS.sliding.windows()``` - used in **(1)**
 - Euclidian distance in sliding windows: ```euclidian.distance.sliding.window()```  - used in **(1)**
 - Distance SFS in windows to Average SFS: ```dist.normSFS()``` - used in **(1)**
-- Calculates Watterson's (1979) estimate of genetic diversity: ```watterson()```  - used in **(1)** and **(2)**
+- Calculates Watterson's (1979) estimate of genetic diversity: ```watterson()```  - used in **(1)**, **(2)** and **(3)**
 - Psi calculation as in Peter & Slatkin (2013, 2015): ```psi()``` - used in **(1)**
 - Genetic distances between two individuals: ```genetic.distance()``` and ```BC.distance.individual()``` - used in **(1)**
-- Neighbouring SFS in ABC sumstat: ```neighbours.SFS()``` and ```multi.neigh.SFS()``` 
+- Neighbouring SFS in ABC sumstat: ```neighbours.SFS()``` and ```multi.neigh.SFS()``` - used in **(1)**
 - Calculates 2D-SFS and a set of bootstrapped 2D-SFS by blocks: ```bootSFS2D.blocks()```  - used in **(1)**
     
 ### Stairway Plot and PSMC tools
 
-- Plot Stairway Plot with confidence intervals: ```plot.stairway.IC()``` - used in **(2)**
+- Plot Stairway Plot with confidence intervals: ```plot.stairway.IC()``` - used in **(1)** and **(3)**
 - Fluctuations in stairway plot output: ```fluctuations.stairway()``` - used in **(2)**
 
 ### FST
