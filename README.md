@@ -30,7 +30,7 @@ Installing the following packages will ensure all functions to work:
 Then one simply has to source the functions file: ``` source(functions_updated.R)```
 
 ## List of functions: 
-### (1) Site frequency spectrum (SFS) scripts
+#### (1) Site frequency spectrum (SFS) scripts
 - Folded SFS calculation: ```sfs.folded()``` - used in **(3)**
 - Unfolded SFS calculation: ```sfs.unfolded()```
 - SFS folding: ```fold.SFS(sfs)```
@@ -45,16 +45,16 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
 - Calculates 2D-SFS and a set of bootstrapped 2D-SFS by blocks: ```bootSFS2D.blocks()```  - used in **(2)**
 - Neighbouring SFS in ABC sumstat: ```neighbours.SFS()``` and ```multi.neigh.SFS()``` - used in **(1)**
 
-### (2) Stairway Plot tools
+#### (2) Stairway Plot tools
 - Plot Stairway Plot with confidence intervals: ```plot.stairway.IC()``` - used in **(1)** and **(3)**
 - Fluctuations in stairway plot output: ```fluctuations.stairway()``` - used in **(3)**
 
-### (3) FST
+#### (3) FST
 - Computes Hudson's (1992) pairwise-FST with resampling procedure: ```fst.hudson()``` - used in **(2)**
 - Computes Isolation By Distance using a Mantel Test: ```ibd.fst()``` - used in Lesturgie et al. (**2022**) *BMC Ecology and Evolution*
 - Plot heatmap and similarity graphy of FST: ```plot.fst()``` - used in **(2)**
 
-### (4) Filtering and extracting info from VCFs
+#### (4) Filtering and extracting info from VCFs
  - Missing data per SNPs and / or individual: ``` missing.data()``` - used in **(1)** and **(3)**
  - Depth per SNPs and / or individual: ```depth()``` - used in **(1)** and **(3)**
  - GC content: ```gc.content()``` - used in **(2)**
