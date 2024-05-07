@@ -10,7 +10,7 @@ These scripts were developed and used (for the most part) in:
 
 **(3)** Lesturgie, P., Le Gouellec, M., Brandl, S.J., Casey, J.M., Delecambre, Z., Parravicini, V., & Mona, S. (***In prep***). Larger trophic niche increases stability along evolutionary times. 
 
-#### Functions below are referenced to these articles, cite accordingly if using the scripts.
+#### The functions below are referenced to the corresponding articles, please cite accordingly.
 
 ---
 
