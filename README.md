@@ -31,11 +31,11 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
 
 ## List of functions: 
 #### (1) Site frequency spectrum (SFS) scripts
-- Folded SFS calculation: ```sfs.folded()``` **(3)**
+- Folded SFS calculation: ```sfs.folded()``` - **(3)**
 - Unfolded SFS calculation: ```sfs.unfolded()```
 - SFS folding: ```fold.SFS(sfs)```
 - Calculates a correct SFS with missing data: ```corr.sfs.missing.data()```
-- SFS normalization as in Lapierre et al. (2021): ```normalized.expected.SFS()``` **(1-3)**
+- SFS normalization as in Lapierre et al. (2021): ```normalized.expected.SFS()``` - **(1-3)**
 - SFS normalization as in Lapierre et al. (2021) in sliding windows: ```normalized.expected.SFS.sliding.windows()``` - used in **(2)**
 - Euclidian distance in sliding windows: ```euclidian.distance.sliding.window()```  - used in **(2)**
 - Distance SFS in windows to Average SFS: ```dist.normSFS()``` - used in **(2)** 
