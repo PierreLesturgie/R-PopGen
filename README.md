@@ -36,32 +36,32 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
 - SFS folding: ```fold.SFS(sfs)```
 - Calculates a correct SFS with missing data: ```corr.sfs.missing.data()```
 - SFS normalization as in Lapierre et al. (2021): ```normalized.expected.SFS()``` - **(1-3)**
-- SFS normalization as in Lapierre et al. (2021) in sliding windows: ```normalized.expected.SFS.sliding.windows()``` - used in **(2)**
-- Euclidian distance in sliding windows: ```euclidian.distance.sliding.window()```  - used in **(2)**
-- Distance SFS in windows to Average SFS: ```dist.normSFS()``` - used in **(2)** 
-- Calculates Watterson's (1979) estimate of genetic diversity: ```watterson()```  - used in **(1)**, **(2)** and **(3)**
-- Psi calculation as in Peter & Slatkin (2013, 2015): ```psi()``` - used in **(2)**
-- Genetic distances between two individuals: ```genetic.distance()``` and ```BC.distance.individual()``` - used in **(2)**
-- Calculates 2D-SFS and a set of bootstrapped 2D-SFS by blocks: ```bootSFS2D.blocks()```  - used in **(2)**
-- Neighbouring SFS in ABC sumstat: ```neighbours.SFS()``` and ```multi.neigh.SFS()``` - used in **(1)**
+- SFS normalization as in Lapierre et al. (2021) in sliding windows: ```normalized.expected.SFS.sliding.windows()``` - **(2)**
+- Euclidian distance in sliding windows: ```euclidian.distance.sliding.window()``` - **(2)**
+- Distance SFS in windows to Average SFS: ```dist.normSFS()``` - **(2)** 
+- Calculates Watterson's (1979) estimate of genetic diversity: ```watterson()```  - **(1-3)**
+- Psi calculation as in Peter & Slatkin (2013, 2015): ```psi()``` -  **(2)**
+- Genetic distances between two individuals: ```genetic.distance()``` and ```BC.distance.individual()``` -  **(2)**
+- Calculates 2D-SFS and a set of bootstrapped 2D-SFS by blocks: ```bootSFS2D.blocks()```  -  **(2)**
+- Neighbouring SFS in ABC sumstat: ```neighbours.SFS()``` and ```multi.neigh.SFS()``` -  **(1)**
 
 #### (2) Stairway Plot tools
-- Plot Stairway Plot with confidence intervals: ```plot.stairway.IC()``` - used in **(1)** and **(3)**
-- Fluctuations in stairway plot output: ```fluctuations.stairway()``` - used in **(3)**
+- Plot Stairway Plot with confidence intervals: ```plot.stairway.IC()``` -  **(1,3)**
+- Fluctuations in stairway plot output: ```fluctuations.stairway()``` -  **(3)**
 
 #### (3) FST
-- Computes Hudson's (1992) pairwise-FST with resampling procedure: ```fst.hudson()``` - used in **(2)**
-- Computes Isolation By Distance using a Mantel Test: ```ibd.fst()``` - used in Lesturgie et al. (**2022**) *BMC Ecology and Evolution*
-- Plot heatmap and similarity graphy of FST: ```plot.fst()``` - used in **(2)**
+- Computes Hudson's (1992) pairwise-FST with resampling procedure: ```fst.hudson()``` -  **(2)**
+- Computes Isolation By Distance using a Mantel Test: ```ibd.fst()``` -  used in Lesturgie et al. (**2022**) *BMC Ecology and Evolution*
+- Plot heatmap and similarity graphy of FST: ```plot.fst()``` -  **(2)**
 
 #### (4) Filtering and extracting info from VCFs
- - Missing data per SNPs and / or individual: ``` missing.data()``` - used in **(1)** and **(3)**
- - Depth per SNPs and / or individual: ```depth()``` - used in **(1)** and **(3)**
- - GC content: ```gc.content()``` - used in **(2)**
- - Heterozygosity per SNPs and / or individual: ```heterozygosity()``` - used in **(1)** and **(3)**
- - Frequency of fixed alleles per SNPs and / or individual: ```fixed.alleles()``` - used in **(2)**
- - Minor allele frequency: ```minor.allele.frequency()``` - used in **(1)** and **(2)**
- - Pick random SNP per locus: ```random.snp()``` - used in **(1)**
+ - Missing data per SNPs and / or individual: ``` missing.data()``` -  **(1,3)**
+ - Depth per SNPs and / or individual: ```depth()``` -  **(1,3)**
+ - GC content: ```gc.content()``` -  **(2)**
+ - Heterozygosity per SNPs and / or individual: ```heterozygosity()``` -  **(1,3)**
+ - Frequency of fixed alleles per SNPs and / or individual: ```fixed.alleles()``` -  **(2)**
+ - Minor allele frequency: ```minor.allele.frequency()``` -  **(1-2)**
+ - Pick random SNP per locus: ```random.snp()``` -  **(1)**
 
 
 ## Usage and details
