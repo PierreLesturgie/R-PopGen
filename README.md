@@ -41,7 +41,6 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
 - Distance SFS in windows to Average SFS: ```dist.normSFS()``` - **(2)** 
 - Calculates Watterson's (1979) estimate of genetic diversity: ```watterson()```  - **(1-3)**
 - Psi calculation as in Peter & Slatkin (2013, 2015): ```psi()``` -  **(2)**
-- Genetic distances between two individuals: ```genetic.distance()``` and ```BC.distance.individual()``` -  **(2)**
 - Calculates 2D-SFS and a set of bootstrapped 2D-SFS by blocks: ```bootSFS2D.blocks()```  -  **(2)**
 - Neighbouring SFS in ABC sumstat: ```neighbours.SFS()``` and ```multi.neigh.SFS()``` -  **(1)**
 
@@ -49,10 +48,11 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
 - Plot Stairway Plot with confidence intervals: ```plot.stairway.IC()``` -  **(1,3)**
 - Fluctuations in stairway plot output: ```fluctuations.stairway()``` -  **(3)**
 
-#### (3) FST
+#### (3) FST and individual-based distances
 - Computes Hudson's (1992) pairwise-FST with resampling procedure: ```fst.hudson()``` -  **(2)**
+- Genetic distances between two individuals: ```genetic.distance()``` and ```BC.distance.individual()``` -  **(2)**
 - Computes Isolation By Distance using a Mantel Test: ```ibd.fst()``` -  used in Lesturgie et al. (**2022**) *BMC Ecology and Evolution*
-- Plot heatmap and similarity graphy of FST: ```plot.fst()``` -  **(2)**
+- Plot heatmap and similarity graphy of distance: ```plot.fst()``` -  **(2)**
 
 #### (4) Filtering and extracting info from VCFs
  - Missing data per SNPs and / or individual: ``` missing.data()``` -  **(1,3)**
