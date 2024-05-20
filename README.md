@@ -62,7 +62,8 @@ Then one simply has to source the functions file: ``` source(functions_updated.R
  - Frequency of fixed alleles per SNPs and / or individual: ```fixed.alleles()``` -  **(2)**
  - Minor allele frequency: ```minor.allele.frequency()``` -  **(1-2)**
  - Pick random SNP per locus: ```random.snp()``` -  **(1)**
-
+ - Make a sliding window coordinate dataset ```sliding.window.df()```
+ - Finding discriminating SNPs between two groups of individuals ```len.fix.sites()``` - **(2)**
 
 ## Usage and details
 
@@ -152,23 +153,6 @@ psi(der_all, bootstrap=1000)
 psi2dist(psi,signif=T)
 ```
 
-#### Genetic distance between two individuals
-There are two functions: 
-
-##### (A) : D = 1 - (shared_alleles / 2)
-Input is simply a genotype table (obtained using vcfR extract.gt function)
-
-```
-genetic.distance(gt)
-```
-
-##### (B) : Bray-Curtis distance
-Input is simply a vcf
-
-```
-BC.distance.individual(vcf,bootstrap=NULL)
-```
-
 #### Neighbouring SFS in ABC sumstat
 Computes the N closest SFS to the observed one in one or multiple simulated models 
 
@@ -203,7 +187,7 @@ computes the sum of slopes between discretized intervals from the stairway plot 
 fluctuations.stairway(stairway,N_DISCRETIZE)
 ```
 
-### (3) FST
+### (3) FST and individual distances
 #### Computes Hudson's (19XX) pairwise-FST
 This returns:
 - Overall pairwise FST between all locations
@@ -215,6 +199,23 @@ Input is a VCF and a list of populations
 
 ```
 fst.hudson(vcf, pop_list,resampling=100,sliding_window=FALSE,slide=NULL,jump=NULL,write=FALSE)
+```
+
+#### Genetic distance between two individuals
+There are two functions: 
+
+##### (A) : D = 1 - (shared_alleles / 2)
+Input is simply a genotype table (obtained using vcfR extract.gt function)
+
+```
+genetic.distance(gt)
+```
+
+##### (B) : Bray-Curtis distance
+Input is simply a vcf
+
+```
+BC.distance.individual(vcf,bootstrap=NULL)
 ```
 
 #### Computes Isolation By Distance using a Mantel Test
@@ -305,3 +306,20 @@ Returns a filtered VCF. This is usually meaningful for RAD-like data (i.e., wher
 ```
 random.snp(vcf)
 ```
+
+#### Make a sliding window coordinate dataset
+Just creates a split data set by position given a position df, a slide and a jump arguments
+
+```
+sliding.window.df(df, jump,slide)
+```
+
+#### Finding discriminating SNPs between two groups of individuals
+This has been used to extract regions where SNPs are disrimining groups of individuals. To works, it requires SNP vcf data for all individuals. Then split in two vcfs corresponding to the two groups of individuals. Compute the frequency of the reference allele for each group using ```af1 = allele.frequecy.ref(vcf1)``` function for both vcfs. Finally, create a dataframe ```data=data.frame(pos = af1[,1],af1[,2],af2[,2])``` and use the function below. 
+
+```
+len.fix.sites(data)
+```
+
+
+
