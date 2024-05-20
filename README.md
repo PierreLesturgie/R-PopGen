@@ -27,7 +27,7 @@ Installing the following packages will ensure all functions to work:
 - ade4
 - rlist
 
-Then one simply has to source the functions file: ``` source(functions_updated.R)```
+Then source the functions file: ``` source(functions_nt.R)```
 
 ## List of functions: 
 #### (1) Site frequency spectrum (SFS) scripts
