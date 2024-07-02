@@ -188,7 +188,7 @@ fluctuations.stairway(stairway,N_DISCRETIZE)
 ```
 
 ### (3) FST and individual distances
-#### Computes Hudson's (19XX) pairwise-FST
+#### Computes Hudson's (1992) pairwise-FST
 This returns:
 - Overall pairwise FST between all locations
 - N resampling values for each pairwise comparison (optional)
